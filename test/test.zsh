@@ -2,6 +2,8 @@
 
 . "$(dirname $0)/../functional.plugin.zsh" # load the functions
 
+autoload colors ; colors # Required so we can use colors below
+
 # TEST - run a unit test
 #
 # $1: Test description
@@ -13,9 +15,10 @@ TEST() {
   expected="$3 "
   result=$(eval $code 2>&1 | tr "\n" " ")
   if [[ $result == $expected ]]; then;
-    echo "SUCCESS: Test '$desc' passed"
+    echo "$fg[green]SUCCESS: Test '$desc' passed$reset_color"
   else
-    echo "FAIL: Test '$desc' yielded $result, expected $expected" | head -1
+    local msg="Test '$desc' yielded $result, expected $expected"
+    echo "$fg[red]FAIL: $msg$reset_color" | head -1
   fi
 }
 
