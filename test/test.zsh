@@ -14,7 +14,8 @@ TEST() {
   code=$2
   expected="$3 "
   result=$(eval $code 2>&1 | tr "\n" " ")
-  if [[ $result == $expected ]]; then;
+  if [[ $result == $expected ]]
+  then
     echo "$fg[green]SUCCESS: Test '$desc' passed$reset_color"
   else
     local msg="Test '$desc' yielded $result, expected $expected"
@@ -22,7 +23,8 @@ TEST() {
   fi
 }
 
-if [[ $debug == 1 ]] ; then;
+if [[ $debug == 1 ]]
+then
   echo "First test the \"test framework\""
 
   TEST "THIS SHOULD SUCCESS" "echo 4" "4"
