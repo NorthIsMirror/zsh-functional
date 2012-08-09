@@ -18,6 +18,14 @@ clone this repo to `~/.zsh/functional` and add
 
 to your `.zshrc`
 
+### Antigen
+
+If you use [antigen], you can simply add
+
+    antigen-bundle Tarrasch/zsh-functional
+
+Among your other `antigen-bundle` commands.
+
 ## Examples
 
 Here are some examples with named functions (`map`, `filter`, `fold`):
@@ -91,3 +99,4 @@ discovering and starting implementing the anonymous function features.
 
 [yogsototh's blogpost]: http://yannesposito.com/Scratch/en/blog/Higher-order-function-in-zsh/
 [Sterling's blogpost]:  http://nicholassterling.wordpress.com/2012/03/30/a-zsh-map-function/
+[antigen]: https://github.com/zsh-users/antigen

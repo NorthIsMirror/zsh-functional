@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 
-. ~/.zsh/functional/load # load the functions
+. "$(dirname $0)/../functional.plugin.zsh" # load the functions
 
 # TEST - run a unit test
 #
