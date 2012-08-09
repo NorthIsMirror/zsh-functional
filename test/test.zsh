@@ -11,11 +11,11 @@ TEST() {
   desc=$1
   code=$2
   expected="$3 "
-  result=$(eval $code | tr "\n" " ")
+  result=$(eval $code 2>&1 | tr "\n" " ")
   if [[ $result == $expected ]]; then;
     echo "SUCCESS: Test '$desc' passed"
   else
-    echo "FAIL: Test '$desc' yielded $result, expected $expected"
+    echo "FAIL: Test '$desc' yielded $result, expected $expected" | head -1
   fi
 }
 
