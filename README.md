@@ -26,7 +26,7 @@ If you use [antigen], you can simply add
 
 Among your other `antigen-bundle` commands.
 
-## Examples
+## Examples and usage
 
 Here are some examples with named functions (`map`, `filter`, `fold`):
 
@@ -69,11 +69,13 @@ Here are some examples of using anonymous functions (`*l` and `*a`):
     result 9
     result 11
 
-## Usage and documentation
+Please also refer to the tests for the usage of the other functions. The
+advantages with the [cram] tests are that they are readable and validated.
 
-Please refer to the tests so far until I've written simple proper docs for each
-function. The function `map` and family will print out documentation for you
-when calling them with no arguments.
+Furthermore, some of the commands will print out their `--help` if they are
+provided no arguments.
+
+## Naming conventions
 
 Each of the method families, `map`, `each`, `filter` and `fold` are having a
 "normal version" accompanied with lambda function version and a arithmetic
@@ -92,6 +94,10 @@ Similarly, use the functions ending with `a`.
 Good idea! Just add a test and implement the new functionality and send away
 your pull request! :)
 
+## Running the tests
+
+We test like [antigen does testing][antigen-tests].
+
 ## Creds
 
 Yann Esposito for the *HoF* idea and big thanks to [Sterling's blogpost] for
@@ -100,3 +106,5 @@ discovering and starting implementing the anonymous function features.
 [yogsototh's blogpost]: http://yannesposito.com/Scratch/en/blog/Higher-order-function-in-zsh/
 [Sterling's blogpost]:  http://nicholassterling.wordpress.com/2012/03/30/a-zsh-map-function/
 [antigen]: https://github.com/zsh-users/antigen
+[cram]: https://bitheap.org/cram/
+[antigen-tests]: https://github.com/zsh-users/antigen#running-the-tests
