@@ -14,7 +14,7 @@ If you are lazy just paste the following lines in your terminal:
 If you want to have more control,
 clone this repo to `~/.zsh/functional` and add
 
-    . ~/.zsh/functional/load
+    . ~/.zsh/functional/functional.plugin.zsh
 
 to your `.zshrc`
 
