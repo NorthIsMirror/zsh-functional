@@ -11,7 +11,7 @@ If you are lazy just paste the following lines in your terminal:
     curl -O https://raw.github.com/yogsototh/zsh_functional/master/install.sh && \
     chmod u+x install.sh && . ./install.sh && \rm -f ./install.sh
 
-If you want to have more control, 
+If you want to have more control,
 clone this repo to `~/.zsh/functional` and add
 
     . ~/.zsh/functional/load
@@ -36,7 +36,7 @@ Here are some examples with named functions (`map`, `filter`, `fold`):
     X b Y
     X c Y
     X d Y
-    
+
     $ add(){print -- $(($1+$2))}
     $ fold add {1..5}
     15
