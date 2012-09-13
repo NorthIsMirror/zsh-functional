@@ -24,3 +24,12 @@ folda can sum numbers
 
   $ folda '$1+$2' 0 {1..5}
   15
+
+Can define sum easily, but you must use positionally expanding arguments
+syntax
+
+  $ sum() { folda '$1+$2' 0 "$@" }
+  $ sum {0..100}
+  5050
+  $ sum
+  0
