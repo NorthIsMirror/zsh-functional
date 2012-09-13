@@ -12,7 +12,7 @@ fold is not commutative
 
 foldl palin
 
-  $ foldl 'echo $1$acc$1' MIDDLE - O o .
+  $ foldl 'echo $x$acc$x' MIDDLE - O o .
   .oO-MIDDLE-Oo.
 
 foldl palin2
