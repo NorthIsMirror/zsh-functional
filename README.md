@@ -1,3 +1,5 @@
+[![Build Status][travis-status-png]][travis-status]
+
 # ZSH higher order functions
 
 You can look at [yogsototh's blogpost] for the idea of higher order functions
@@ -108,3 +110,5 @@ discovering and starting implementing the anonymous function features.
 [antigen]: https://github.com/zsh-users/antigen
 [cram]: https://bitheap.org/cram/
 [antigen-tests]: https://github.com/zsh-users/antigen#running-the-tests
+[travis-status]: https://secure.travis-ci.org/Tarrasch/zsh-functional
+[travis-status-png]: https://secure.travis-ci.org/Tarrasch/zsh-functional.png
