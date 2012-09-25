@@ -1,9 +1,14 @@
 [![Build Status][travis-status-png]][travis-status]
 
-# ZSH higher order functions
+# ZSH higher order functions <sup>&alpha;</sup>
 
 You can look at [yogsototh's blogpost] for the idea of higher order functions
 in zsh.
+
+# Warning -- still in alpha
+
+I have some plans to change the behavior of `map` and rename all lambda methods
+to be considered default and thus just be named `map`, `each` etc.
 
 ## Install
 
