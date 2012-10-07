@@ -10,7 +10,7 @@ fold () {
     } >&2
     return 1
   } else {
-    typeset f="\$($1 \$acc \$1)"; shift
+    typeset f="\$($1 \$acc \$x)"; shift
     foldlp "$f" "$@"
   }
 }
@@ -26,7 +26,7 @@ foldl () {
     local body=$1
     local acc=$2
     shift 2
-    for x; acc=$(folde_ $x $acc $body)
+    for x; acc=$(folde_ $acc $x $body)
     print -- $acc
     return 0
   }
@@ -48,19 +48,22 @@ foldlp () {
     local body=$1
     local acc=$2
     shift 2
-    for x; acc=$(fold_ $x $acc $body)
+    for x; acc=$(fold_ $acc $x $body)
     print -- $acc
     return 0
   }
 }
 
 fold_ () {
-  local acc=$2
+  local acc=$1
+  local x=$2
   local body=$3
   print "${(e)body}"
 }
+
 folde_ () {
-  local acc=$2
+  local acc=$1
+  local x=$2
   local body=$3
   eval "${(e)body}"
 }

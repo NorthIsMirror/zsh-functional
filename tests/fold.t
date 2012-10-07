@@ -17,13 +17,19 @@ foldl palin
 
 foldl palin2
 
-  $ foldl 'echo $1$2$1' MIDDLE - O o .
+  $ foldl 'echo $2$1$2' MIDDLE - O o .
   .oO-MIDDLE-Oo.
 
 folda can sum numbers
 
   $ folda '$1+$2' 0 {1..5}
   15
+
+folda can sum numbers using mnemonic names
+
+  $ folda '$x+$acc' 0 {1..5}
+  15
+
 
 Can define sum easily, but you must use positionally expanding arguments
 syntax
@@ -33,3 +39,9 @@ syntax
   5050
   $ sum
   0
+
+This is left fold, in haskell notation obeying
+foldl f z [x1, x2, ..., xn] == (...((z `f` x1) `f` x2) `f`...) `f` xn
+
+  $ foldl 'echo "($acc <--> $x)"' z x1 x2
+  ((z <--> x1) <--> x2)
