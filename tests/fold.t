@@ -45,3 +45,8 @@ foldl f z [x1, x2, ..., xn] == (...((z `f` x1) `f` x2) `f`...) `f` xn
 
   $ foldl 'echo "($acc <--> $x)"' z x1 x2
   ((z <--> x1) <--> x2)
+
+Acc is $1 and x is $2
+
+  $ foldl 'echo "($1 <--> $2)"' z x1 x2
+  ((z <--> x1) <--> x2)
