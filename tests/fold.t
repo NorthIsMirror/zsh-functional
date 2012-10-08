@@ -35,8 +35,8 @@ Can define sum easily, but you must use positionally expanding arguments
 syntax
 
   $ sum() { folda '$1+$2' 0 "$@" }
-  $ sum {0..100}
-  5050
+  $ sum {0..10}
+  55
   $ sum
   0
 
