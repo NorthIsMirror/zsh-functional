@@ -1,8 +1,14 @@
-# usage:
-#
-# $ baz() { print $1 | grep baz }
-# $ filter baz titi bazaar biz
-# bazaar
+filterl() {
+  typeset f="$1"; shift
+  filter_() {
+    local x=$1
+    local f=$2
+    eval "$f" && print -- "$x"
+  }
+  for x; filter_ "$x" "$f"
+  return 0
+}
+
 filter() {
   (($#<1)) && {
     {
@@ -15,22 +21,9 @@ filter() {
     } >&2
     return 1
   }
-  typeset f="$1 \"\$1\""; shift
+  typeset f="$1 \"\$x\""; shift
   filterl "$f" "$@"
 }
-
-filterl() {
-  typeset f="$1"; shift
-  typeset x
-  for x; filter_ "$x" "$f"
-  return 0
-}
-filter_() {
-  eval "$2" && print -- "$1"
-}
-
-### filtera ArithRelation Arg ...  # is shorthand for
-### filter '(( ArithRelation ))' Arg ...
 
 filtera() {
   typeset f="(( $1 ))"; shift
