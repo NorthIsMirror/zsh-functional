@@ -8,3 +8,8 @@ Also acc is $2 and x is $1 now unlike fold left
 
   $ foldright 'echo "($1 <--> $2)"' z x1 x2
   (x1 <--> (x2 <--> z))
+
+You can add numbers
+
+  $ foldright 'echo $[ $x+$acc ]' {0..5}
+  15

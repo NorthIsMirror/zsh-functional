@@ -6,7 +6,7 @@ foldright () {
     print -- 'usage: foldright lambda list'
     print 
     print -- 'example:'
-    print -- '    > fold 0 1 2 3 4 5' 
+    print -- "    > foldright 'echo \$[ \$x+\$acc ]' 0 1 2 3 4 5"
     print -- '    15'
     } >&2
     return 1
