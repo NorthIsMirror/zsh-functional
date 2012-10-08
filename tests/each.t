@@ -1,3 +1,11 @@
+each can add numbers
+
+  $ plus_one () { echo $(($1+1)) }
+  $ each plus_one {0..2}
+  1
+  2
+  3
+
 each can only append
 
   $ each 'echo young' boy girl
