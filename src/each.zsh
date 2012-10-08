@@ -12,6 +12,18 @@ eachl() {
 }
 
 each() {
+  (($#<1)) && {
+    print -- "usage: map funcname [list]"
+    print
+    print -- 'example:'
+    print -- '    > foo(){print "x: $1"}'
+    print -- '    > map foo a b c d'
+    print -- '    x: a'
+    print -- '    x: b'
+    print -- '    x: c'
+    print -- '    x: d'
+    return 1
+  }
   typeset f="$1 \"\$1\""; shift
   eachl "$f" "$@"
 }
