@@ -13,3 +13,8 @@ You can add numbers
 
   $ foldright 'echo $[ $x+$acc ]' {0..5}
   15
+
+It also works with a very few arguments
+
+  $ foldright 'echo $[ $x+$acc ]' 7
+  7

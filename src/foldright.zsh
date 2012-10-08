@@ -14,9 +14,9 @@ foldright () {
     local body=$1
     local acc=$2
     shift 2
-    for i in {$#..1}
+    for x in "${(Oa)@}" # Loop in reverse order
     do
-      acc=$(foldrighte_ $@[i] $acc $body)
+      acc=$(foldrighte_ $x $acc $body)
     done
     print -- $acc
     return 0
