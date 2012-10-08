@@ -7,7 +7,7 @@ filter() {
   (($#<1)) && {
     {
       print -- "usage: filter func list"
-      print 
+      print
       print -- "example:"
       print -- '    > baz(){print "$*" | grep baz}'
       print -- '    > filter baz titi bazaar biz'
