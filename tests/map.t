@@ -1,6 +1,6 @@
 mapl can echo-append
 
-  $ mapl 'echo $1 day' good bad
+  $ mapl '$1 day' good bad
   good day
   bad day
 

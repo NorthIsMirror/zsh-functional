@@ -10,16 +10,9 @@ mapl () {
     print -- '    x: d'
     return 1
   }
-  typeset f="$1"; shift
-  typeset x
-  typeset result=0
-  for x; mapl_ "$x" "$f" || result=$?
-  return $result
+  typeset f="echo $1"; shift
+  eachl $f $@
 }
-mapl_ () {
-  eval "${(e)2}"
-}
-
 
 mapa () {
   (($#<1)) && {
@@ -33,19 +26,6 @@ mapa () {
     print -- '    8'
     return 1
   }
-  typeset f="\$[ $1 ]"; shift
-  mapa__ "$f" "$@"
-}
-
-mapa__ () {
-  (($#<1)) && return 1
-  typeset f="$1"; shift
-  typeset x
-  typeset result=0
-  for x; mapa_ "$x" "$f" || result=$?
-  return $result
-}
-
-mapa_ () {
-  print -- "${(e)2}"
+  typeset f="echo \$[ $1 ]"; shift
+  eachl $f $@
 }
