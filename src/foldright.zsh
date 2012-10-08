@@ -10,22 +10,22 @@ foldright () {
     print -- '    15'
     } >&2
     return 1
-  } else {
-    local body=$1
-    local acc=$2
-    shift 2
-    for x in "${(Oa)@}" # Loop in reverse order
-    do
-      acc=$(foldrighte_ $x $acc $body)
-    done
-    print -- $acc
-    return 0
   }
-}
 
-foldrighte_ () {
-  local x=$1 # Indeed unlike left fold
+  local body=$1
   local acc=$2
-  local body=$3
-  eval "${(e)body}"
+  shift 2
+
+  foldright_ () {
+    local x=$1 # Indeed unlike left fold
+    local acc=$2
+    local body=$3
+    eval "${(e)body}"
+  }
+  for x in "${(Oa)@}" # Loop in reverse order
+  do
+    acc=$(foldright_ $x $acc $body)
+  done
+  print -- $acc
+  return 0
 }
