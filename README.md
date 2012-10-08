@@ -15,7 +15,7 @@ to be considered default and thus just be named `map`, `each` etc.
 If you are lazy just paste the following lines in your terminal:
 
     cd /tmp && \
-    curl -O https://raw.github.com/yogsototh/zsh_functional/master/install.sh && \
+    curl -O https://raw.github.com/Tarrasch/zsh-functional/master/install.sh && \
     chmod u+x install.sh && . ./install.sh && \rm -f ./install.sh
 
 If you want to have more control,

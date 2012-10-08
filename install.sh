@@ -2,7 +2,7 @@
 
 [[ ! -d $HOME/.zsh ]] && mkdir $HOME/.zsh
 cd $HOME/.zsh && \
-git clone https://github.com/yogsototh/zsh_functional.git $HOME/.zsh/functional && \
+git clone https://github.com/Tarrasch/zsh-functional.git $HOME/.zsh/functional && \
 {
     print -- "\n# ZSH Higher Order Functions"
     echo '. $HOME/.zsh/functional/functional.plugin.zsh'
