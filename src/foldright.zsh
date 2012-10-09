@@ -1,17 +1,8 @@
-. $(dirname $0)/fold.zsh
-
 foldright () {
-  if (($#<2)) {
-    {
-    print -- 'usage: foldright lambda list'
-    print 
-    print -- 'example:'
-    print -- "    > foldright 'echo \$[ \$x+\$acc ]' 0 1 2 3 4 5"
-    print -- '    15'
-    } >&2
+  (($#<1)) && {
+    print -- "usage: $0 lambda-function [list]"
     return 1
-  }
-
+  } >&2
   local body=$1
   local acc=$2
   shift 2

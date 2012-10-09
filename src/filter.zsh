@@ -1,4 +1,8 @@
-filterl() {
+filter() {
+  (($#<1)) && {
+    print -- "usage: $0 lambda-function [list]"
+    return 1
+  } >&2
   typeset f="$1"; shift
   filter_() {
     local x=$1
@@ -9,23 +13,25 @@ filterl() {
   return 0
 }
 
-filter() {
+filterf() {
   (($#<1)) && {
-    {
-      print -- "usage: filter func list"
-      print
-      print -- "example:"
-      print -- '    > baz(){print "$*" | grep baz}'
-      print -- '    > filter baz titi bazaar biz'
-      print -- '    bazaar'
-    } >&2
+    print -- "usage: $0 function [list]"
+    print
+    print -- "example:"
+    print -- '    > baz(){print "$*" | grep baz}'
+    print -- "    > $0 baz titi bazaar biz"
+    print -- '    bazaar'
     return 1
-  }
+  } >&2
   typeset f="$1 \"\$x\""; shift
-  filterl "$f" "$@"
+  filter "$f" "$@"
 }
 
 filtera() {
+  (($#<1)) && {
+    print -- "usage: $0 lambda-arithmetic [list]"
+    return 1
+  } >&2
   typeset f="(( $1 ))"; shift
-  filterl "$f" "$@"
+  filter "$f" "$@"
 }

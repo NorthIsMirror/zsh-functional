@@ -1,4 +1,11 @@
-eachl() {
+each() {
+  (($#<1)) && {
+    print -- "usage: $0 lambda-function [list]"
+    print
+    print -- 'example:'
+    print -- "    > $0 'sudo kill \$1' \$(pidof multi-pid-app-u-hate)"
+    return 1
+  } >&2
   typeset f="$1"; shift
   typeset x
   typeset result=0
@@ -11,20 +18,20 @@ eachl() {
   return $result
 }
 
-each() {
+eachf() {
   (($#<1)) && {
-    print -- "usage: map funcname [list]"
+    print -- "usage: $0 funcname [list]"
     print
     print -- 'example:'
     print -- '    > foo(){print "x: $1"}'
-    print -- '    > map foo a b c d'
+    print -- "    > $0 foo a b c d"
     print -- '    x: a'
     print -- '    x: b'
     print -- '    x: c'
     print -- '    x: d'
     return 1
-  }
+  } >&2
   typeset f="$1 \"\$1\""; shift
-  eachl "$f" "$@"
+  each "$f" "$@"
 }
 
