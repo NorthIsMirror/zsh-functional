@@ -61,7 +61,7 @@ Here are some examples:
 Here are some examples with named functions:
 
     $ insideXY(){print -- "X $1 Y"}
-    $ echo insideXY a b c d
+    $ eachf insideXY a b c d
     X a Y
     X b Y
     X c Y
