@@ -6,10 +6,9 @@ filter() {
   typeset f="$1"; shift
   filter_() {
     local x=$1
-    local f=$2
     eval "$f" && print -- "$x"
   }
-  for x; filter_ "$x" "$f"
+  for x; filter_ "$x"
   return 0
 }
 

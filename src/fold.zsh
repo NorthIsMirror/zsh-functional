@@ -9,12 +9,11 @@ fold () {
   fold_ () {
     local acc=$1
     local x=$2
-    local body=$3
     eval "${(e)body}"
   }
   for x
   do
-    acc=$(fold_ $acc $x $body)
+    acc=$(fold_ $acc $x)
   done
   print -- $acc
 }

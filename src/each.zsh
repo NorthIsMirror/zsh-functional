@@ -11,10 +11,9 @@ each() {
   typeset result=0
   each_() {
     local x=$1
-    local f=$2
     eval $f
   }
-  for x; each_ "$x" "$f" || result=$?
+  for x; each_ "$x" || result=$?
   return $result
 }
 

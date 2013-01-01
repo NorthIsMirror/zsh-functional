@@ -10,12 +10,11 @@ foldright () {
   foldright_ () {
     local x=$1 # Indeed unlike left fold
     local acc=$2
-    local body=$3
     eval "${(e)body}"
   }
   for x in "${(Oa)@}" # Loop in reverse order
   do
-    acc=$(foldright_ $x $acc $body)
+    acc=$(foldright_ $x $acc)
   done
   print -- $acc
   return 0
