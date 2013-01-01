@@ -90,6 +90,11 @@ expression*. The examples above should clarify the syntax.
 intuitive for ruby developers. Note how `mapa` exists but not `eacha`, and the
 contrary for `mapf` and `eachf`.
 
+### Reading from standard input
+
+All functions will read from stdin if no arguments are given to them.  Please
+see `tests/filter.t` For a test that *lazily* generates the first 10 primes.
+
 ## Contributing
 
 Good idea! Just add a test and implement the new functionality and send away
