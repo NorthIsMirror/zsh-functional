@@ -18,3 +18,9 @@ can remove odd numbers
   0
   2
   4
+
+filter can read from stdin
+
+  $ print "ab\nbc\nac" | filter 'echo $1 | grep a --silent'
+  ab
+  ac

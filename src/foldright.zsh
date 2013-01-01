@@ -12,7 +12,14 @@ foldright () {
     local acc=$2
     eval "${(e)body}"
   }
-  for x in "${(Oa)@}" # Loop in reverse order
+  local input
+  input=()
+  storer_ () {
+    input+=$1
+  }
+  eval $loopNow storer_
+  
+  foreach x (${(Oa)input}) # Loop in reverse order
   do
     acc=$(foldright_ $x $acc)
   done

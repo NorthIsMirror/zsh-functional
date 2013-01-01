@@ -37,8 +37,12 @@ syntax
   $ sum() { folda '$1+$2' 0 "$@" }
   $ sum {0..10}
   55
-  $ sum
-  0
+#  $ sum
+#  0
+# This test got disabled when the stdin feature was added, as now programs
+# without any arguments will be run as interactive programs instead of
+# thinkning no arguments as an empty list.
+ 
 
 This is left fold, in haskell notation obeying
 foldl f z [x1, x2, ..., xn] == (...((z `f` x1) `f` x2) `f`...) `f` xn
@@ -50,3 +54,8 @@ Acc is $1 and x is $2
 
   $ fold 'echo "($1 <--> $2)"' z x1 x2
   ((z <--> x1) <--> x2)
+
+folda can read from stdin
+
+  $ print "1\n2\n3\n4" | folda '$1+$2' 0
+  10

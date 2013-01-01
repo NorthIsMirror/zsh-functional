@@ -23,3 +23,17 @@ can use $x
   $ each 'echo $x day' good bad
   good day
   bad day
+
+each can read from stdin
+
+  $ print "good\nbad\ngood bad" | each 'echo $1 day'
+  good day
+  bad day
+  good bad day
+
+eachf can read from stdin
+
+  $ plus_one () { echo $(($1+1)) }
+  $ print "1\n2" | eachf plus_one
+  2
+  3

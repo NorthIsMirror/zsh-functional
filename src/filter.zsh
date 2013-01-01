@@ -1,3 +1,5 @@
+. $(dirname $0)/loop-magic.zsh
+
 filter() {
   (($#<1)) && {
     print -- "usage: $0 lambda-function [list]"
@@ -8,7 +10,7 @@ filter() {
     local x=$1
     eval "$f" && print -- "$x"
   }
-  for x; filter_ "$x"
+  eval $loopNow filter_
   return 0
 }
 

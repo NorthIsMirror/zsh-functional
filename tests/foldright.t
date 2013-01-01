@@ -14,7 +14,13 @@ You can add numbers
   $ foldright 'echo $[ $x+$acc ]' {0..5}
   15
 
-It also works with a very few arguments
+#It also works with a very few arguments
+#
+#  $ foldright 'echo $[ $x+$acc ]' 7
+#  7
+# Test disabled when reading from stdin was introduced
 
-  $ foldright 'echo $[ $x+$acc ]' 7
-  7
+foldright can read from stdin
+
+  $ echo "1\n2\n3\n4" | foldright 'echo $[ $x+$acc ]' 0
+  10

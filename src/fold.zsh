@@ -11,10 +11,10 @@ fold () {
     local x=$2
     eval "${(e)body}"
   }
-  for x
-  do
-    acc=$(fold_ $acc $x)
-  done
+  helper_ () {
+    acc=$(fold_ $acc $1)
+  }
+  eval $loopNow helper_
   print -- $acc
 }
 
