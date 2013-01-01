@@ -10,12 +10,12 @@ is not commutative
   $ foldf ignore_acc a b c d
   d
 
-palin
+palindrome using mnemonic arguments
 
   $ fold 'echo $x$acc$x' MIDDLE - O o .
   .oO-MIDDLE-Oo.
 
-palin2
+palindrome using numbered arguments
 
   $ fold 'echo $2$1$2' MIDDLE - O o .
   .oO-MIDDLE-Oo.
