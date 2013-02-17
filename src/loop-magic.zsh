@@ -6,9 +6,12 @@
 
 initGo="
   local loopword
+  local myarray
+  myarray=()
   if ((\$#>1))
   then
-    loopword=\"for x in \$@\"
+    loopword='for x in \$myarray'
+    for x; myarray+=\$x
   else
     loopword='while read x'
   fi

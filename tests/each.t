@@ -37,3 +37,16 @@ eachf can read from stdin
   $ print "1\n2" | eachf plus_one
   2
   3
+
+each with eval. The purpose of this test is check that it will treat 'echo hi'
+as one argument and not as 'echo' 'hi'.
+
+  $ each 'eval $1' 'echo hi' 'echo yo'
+  hi
+  yo
+
+each with eval using stdin
+
+  $ echo "echo hi\necho yo" | each 'eval $1'
+  hi
+  yo
