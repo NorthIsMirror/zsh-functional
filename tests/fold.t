@@ -59,3 +59,22 @@ folda can read from stdin
 
   $ print "1\n2\n3\n4" | folda '$1+$2' 0
   10
+
+manual folda - this will test some sort escaping occurs
+
+  $ fold 'echo $(( $1 * $2 ))' 1 2 3 4
+  24
+  $ fold 'echo $(( $1 * $x ))' 1 2 3 4
+  24
+  $ fold 'echo $(( $acc * $2 ))' 1 2 3 4
+  24
+  $ fold 'echo $(( $acc * $x ))' 1 2 3 4
+  24
+  $ fold 'echo $[ $1 * $2 ]' 1 2 3 4
+  24
+  $ fold 'echo $[ $1 * $x ]' 1 2 3 4
+  24
+  $ fold 'echo $[ $acc * $2 ]' 1 2 3 4
+  24
+  $ fold 'echo $[ $acc * $x ]' 1 2 3 4
+  24
