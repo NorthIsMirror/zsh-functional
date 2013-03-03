@@ -42,7 +42,7 @@ syntax
 # This test got disabled when the stdin feature was added, as now programs
 # without any arguments will be run as interactive programs instead of
 # thinkning no arguments as an empty list.
- 
+
 
 This is left fold, in haskell notation obeying
 foldl f z [x1, x2, ..., xn] == (...((z `f` x1) `f` x2) `f`...) `f` xn
