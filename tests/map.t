@@ -24,3 +24,8 @@ mapa can read from stdin
   6
   7
   8
+
+map also works with single argument
+
+  $ map 'hello $1' abc
+  hello abc

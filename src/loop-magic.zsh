@@ -8,7 +8,7 @@ initGo="
   local loopword
   local myarray
   myarray=()
-  if ((\$#>1))
+  if ((\$#>0))
   then
     loopword='for x in \$myarray'
     for x; myarray+=\$x
