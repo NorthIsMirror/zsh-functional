@@ -29,3 +29,27 @@ map also works with single argument
 
   $ map 'hello $1' abc
   hello abc
+
+should never ever have an effect but printing
+
+  $ touch a
+  $ cat a
+  $ map 'echo "hello world" > $1' a
+  echo "hello world" > a
+  $ cat a
+
+should never ever have an effect but printing (again)
+
+  $ echo hello > abc.in
+  $ echo world > def.in
+  $ touch abc.out def.out
+  $ cat abc.out def.out
+  $ map 'cat < $1 > ${1/in/out}' *.in
+  cat < abc.in > abc.out
+  cat < def.in > def.out
+
+should never ever have an effect but printing (mapa)
+
+  $ mapa '$1>5' 3 7
+  0
+  1

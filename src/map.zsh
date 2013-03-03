@@ -10,8 +10,11 @@ map () {
     print -- '    x: d'
     return 1
   } >&2
-  typeset f="echo $1"; shift
-  each $f $@
+  typeset f="$1"; shift
+  map_() {
+    echo ${(e)f}
+  }
+  eval $loopNow map_
 }
 
 mapa () {
@@ -25,6 +28,6 @@ mapa () {
     print -- '    8'
     return 1
   } >&2
-  typeset f="echo \$[ $1 ]"; shift
-  each $f $@
+  typeset f="\$[ $1 ]"; shift
+  map $f $@
 }
