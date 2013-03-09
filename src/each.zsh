@@ -35,4 +35,3 @@ eachf() {
   typeset f="$1 \"\$1\""; shift
   each "$f" "$@"
 }
-

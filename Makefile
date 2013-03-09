@@ -5,4 +5,3 @@ itests:
 
 tests:
 	ZDOTDIR="${PWD}/tests" cram --shell=zsh tests
-
