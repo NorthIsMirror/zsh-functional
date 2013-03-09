@@ -1,6 +1,5 @@
 # This is a very hackish way to get a decently clean syntax for looping through
-# either the remaining arguments ($@) or if they don't exist (no arguments)
-# then start looping through stdin.
+# either $@ (the arguments) or stdin if $# is 0 (there is none)
 #
 # Please see the other files for how to use this monster.
 
