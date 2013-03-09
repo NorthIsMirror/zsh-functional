@@ -15,8 +15,8 @@ each() {
     local x=$1
     eval $f
   }
-  eval $loopNow each_ || result=$?
-  return $result
+  eval $loopNow each_ "'local res=\$?; (( \$res != 0 )) && return \$res'"
+  return $?
 }
 
 eachf() {

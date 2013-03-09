@@ -15,6 +15,7 @@ initGo="
     loopword='while read x'
   fi
   go () {
-    eval \$loopword \"; do; \$@ \\\$x; done\"
+    eval \$loopword \"; do; \$1 \\\$x; \$2 ; done\"
+    return 0
   }"
 loopNow="$initGo; go"

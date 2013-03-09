@@ -50,3 +50,10 @@ each with eval using stdin
   $ echo "echo hi\necho yo" | each 'eval $1'
   hi
   yo
+
+each should stop on its first error
+
+  $ each 'eval $1' 'return 0' 'return 4' 'return 5'; echo $?
+  4
+  $ echo "return 0\nreturn 4\nreturn 5" | each 'eval $1'; echo $?
+  4
