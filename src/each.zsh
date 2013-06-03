@@ -9,11 +9,9 @@ each() {
     return 1
   } >&2
   typeset f="$1"; shift
-  typeset x
   typeset result=0
   each_() {
-    local x=$1
-    eval $f
+    eval ${(e)f}
   }
   eval $loopNow each_ "'local res=\$?; (( \$res != 0 )) && return \$res'"
   return $?
