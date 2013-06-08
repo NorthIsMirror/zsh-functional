@@ -1,37 +1,26 @@
-. $(dirname $0)/loop-magic.zsh
-
 each() {
-  (($#<1)) && {
-    print -- "usage: $0 lambda-function [list]"
-    print
-    print -- 'example:'
-    print -- "    > $0 'sudo kill \$1' \$(pidof multi-pid-app-u-hate)"
-    return 1
-  } >&2
+  eval $initDocs
+  usage "<lambda-function> [list...]"
+  example "'(( \$1 >= 5 )) && echo \$1'" 5 1 7 4
+  example "'(( \$1 >= 5 )) && echo \$1 || true'" 5 1 7 4
+  eval $doneDocs
+
   typeset f="$1"; shift
-  typeset x
   typeset result=0
   each_() {
-    local x=$1
-    eval $f
+    eval ${(e)f}
   }
   eval $loopNow each_ "'local res=\$?; (( \$res != 0 )) && return \$res'"
   return $?
 }
 
 eachf() {
-  (($#<1)) && {
-    print -- "usage: $0 funcname [list]"
-    print
-    print -- 'example:'
-    print -- '    > foo(){print "x: $1"}'
-    print -- "    > $0 foo a b c d"
-    print -- '    x: a'
-    print -- '    x: b'
-    print -- '    x: c'
-    print -- '    x: d'
-    return 1
-  } >&2
+  echo_twice () { echo $1 $1 }
+  eval $initDocs
+  usage "<function> [list...]"
+  example "echo_twice" a b c
+  eval $doneDocs
+
   typeset f="$1 \"\$1\""; shift
   each "$f" "$@"
 }

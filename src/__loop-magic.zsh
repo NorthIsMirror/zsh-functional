@@ -1,5 +1,6 @@
-## Meta-programming file!!!
+## Meta-programming file
 ##
+## This file is supposed to be evaluated inside a function
 
 local loopword
 local myarray
@@ -15,4 +16,3 @@ go () {
   eval $loopword "; do; $1 \$x; $2 ; done"
   return 0
 }
-

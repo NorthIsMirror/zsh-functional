@@ -1,10 +1,11 @@
 . $(dirname $0)/loop-magic.zsh
 
 filter() {
-  (($#<1)) && {
-    print -- "usage: $0 lambda-function [list]"
-    return 1
-  } >&2
+  eval $initDocs
+  usage "<lambda-function> [list...]"
+  example "'echo \$1 | grep --silent an'" anna bryan cecilia daniel
+  eval $doneDocs
+
   typeset f="$1"; shift
   filter_() {
     local x=$1
@@ -15,24 +16,21 @@ filter() {
 }
 
 filterf() {
-  (($#<1)) && {
-    print -- "usage: $0 function [list]"
-    print
-    print -- "example:"
-    print -- '    > baz(){print "$*" | grep baz}'
-    print -- "    > $0 baz titi bazaar biz"
-    print -- '    bazaar'
-    return 1
-  } >&2
+  eval $initDocs
+  usage "<function> [list...]"
+  example "'test 5 -ge'" 3 5 7 1
+  eval $doneDocs
+
   typeset f="$1 \"\$x\""; shift
   filter "$f" "$@"
 }
 
 filtera() {
-  (($#<1)) && {
-    print -- "usage: $0 lambda-arithmetic [list]"
-    return 1
-  } >&2
+  eval $initDocs
+  usage "<arithmetic-function> [list...]"
+  example "'\$1%3 == 0'" {1..6}
+  eval $doneDocs
+
   typeset f="(( $1 ))"; shift
   filter "$f" "$@"
 }
