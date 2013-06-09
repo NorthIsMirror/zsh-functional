@@ -1,8 +1,10 @@
 foldright () {
-  (($#<1)) && {
-    print -- "usage: $0 lambda-function [list]"
-    return 1
-  } >&2
+  eval $initDocs
+  usage '<lambda-function> <accumulator> [<item>...]'
+  example "'echo \"(\$1 <--> \$2)\"'"   z x1 x2
+  example "'echo \"(\$x <--> \$acc)\"'" z x1 x2
+  eval $doneDocs
+
   local body=$1
   local acc=$2
   shift 2

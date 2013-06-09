@@ -17,30 +17,28 @@ docs () {
   docs_var+="$@\n"
 }
 
-fail () {
-  did_fail=1
-}
-
 usage() {
-  # TODO: Don't assume only one parameter
-  # params=$@
-  # for param in ${=params}
-  # do
-  #   # stuff
-  # done
-  docs "usage: $function_name $@"
+  params=$@
+  required_num_params=0 # TODO: make more sophisticated
+  for param in ${=params}
+  do
+    param_is_singleton $param && required_num_params=$[ $required_num_params + 1 ]
+  done
+  docs "usage: $function_name $params"
   docs
-  if [[ $function_num_params < 1 ]]
+  if (( $function_num_params < $required_num_params ))
   then
-    fail
+    did_fail=1
   fi
 }
 
 example() {
-  docs "example:"
-  docs "$ $function_name $@"
-  result=$(eval "$function_name $@")
-  #echo $function_name $@
-  docs "$result"
-  docs
+  if [[ $did_fail == 1 ]]
+  then
+    docs "example:"
+    docs "$ $function_name $@"
+    result=$(eval "$function_name $@")
+    docs "$result"
+    docs
+  fi
 }
