@@ -58,6 +58,11 @@ Here are some examples:
     result 9
     result 11
 
+    $ echo "1\n2\n3" | mapa '$1*2' | mapa '$1+5' | map 'result $1'
+    result 7
+    result 9
+    result 11
+
 Here are some examples with named functions:
 
     $ insideXY(){print -- "X $1 Y"}
