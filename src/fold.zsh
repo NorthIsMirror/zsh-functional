@@ -11,7 +11,7 @@ fold () {
   fold_ () {
     local acc=$1
     local x=$2
-    eval "${(e)body}"
+    eval "${(e)==body}"
   }
   helper_ () {
     acc=$(fold_ $acc $1)

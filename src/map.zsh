@@ -6,7 +6,7 @@ map () {
 
   typeset f="$1"; shift
   map_() {
-    echo ${(e)f}
+    echo ${(e)==f}
   }
   eval "$loopNow" map_
 }
@@ -18,5 +18,5 @@ mapa () {
   eval "$doneDocs"
 
   typeset f="\$[ $1 ]"; shift
-  map $f $@
+  map "$f" "$@"
 }

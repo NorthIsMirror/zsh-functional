@@ -9,7 +9,7 @@ filter() {
   typeset f="$1"; shift
   filter_() {
     local x=$1
-    eval "$f" && print -- "$x"
+    eval "${==f}" && print -- "$x"
   }
   eval "$loopNow" filter_
   return 0

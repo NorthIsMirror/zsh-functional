@@ -1,9 +1,9 @@
 foldright () {
-  eval $initDocs
+  eval "$initDocs"
   usage '<lambda-function> <accumulator> [<item>...]'
   example "'echo \"(\$1 <--> \$2)\"'"   z x1 x2
   example "'echo \"(\$x <--> \$acc)\"'" z x1 x2
-  eval $doneDocs
+  eval "$doneDocs"
 
   local body=$1
   local acc=$2
@@ -12,15 +12,15 @@ foldright () {
   foldright_ () {
     local x=$1 # Indeed unlike left fold
     local acc=$2
-    eval "${(e)body}"
+    eval "${(e)==body}"
   }
   local input
   input=()
   storer_ () {
     input+=$1
   }
-  eval $loopNow storer_
-  
+  eval "$loopNow" storer_
+
   foreach x (${(Oa)input}) # Loop in reverse order
   do
     acc=$(foldright_ $x $acc)

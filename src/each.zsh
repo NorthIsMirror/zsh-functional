@@ -8,7 +8,7 @@ each() {
   typeset f="$1"; shift
   typeset result=0
   each_() {
-    eval ${(e)f}
+    eval ${(e)==f}
   }
   eval "$loopNow" each_ "'local res=\$?; (( \$res != 0 )) && return \$res'"
   return $?
