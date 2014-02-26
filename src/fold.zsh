@@ -1,9 +1,9 @@
 fold () {
-  eval $initDocs
+  eval "$initDocs"
   usage '<lambda-function> <accumulator> [<item>...]'
   example "'echo \$2\$1\$2'" MIDDLE - O o .
   example "'echo \$x\$acc\$x'" MIDDLE - O o .
-  eval $doneDocs
+  eval "$doneDocs"
 
   local body=$1
   local acc=$2
@@ -16,27 +16,27 @@ fold () {
   helper_ () {
     acc=$(fold_ $acc $1)
   }
-  eval $loopNow helper_
+  eval "$loopNow" helper_
   print -- $acc
 }
 
 foldf () {
   addition () { echo $(($1 + $2)) }
-  eval $initDocs
+  eval "$initDocs"
   usage '<function> <accumulator> [<item>...]'
   example addition 0 {1..5}
-  eval $doneDocs
+  eval "$doneDocs"
 
   typeset f="echo \$($1 \$acc \$x)"; shift
   fold "$f" "$@"
 }
 
 folda () {
-  eval $initDocs
+  eval "$initDocs"
   usage '<arithmetic-lambda-function> <accumulator> [<item>...]'
   example "'\$1+\$2'" 0 {1..5}
   example "'\$acc+\$x'" 0 {1..5}
-  eval $doneDocs
+  eval "$doneDocs"
 
   typeset f="echo \$[ $1 ]"; shift
   fold "$f" "$@"

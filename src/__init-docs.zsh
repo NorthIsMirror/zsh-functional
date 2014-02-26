@@ -37,8 +37,7 @@ example() {
   then
     docs "example:"
     docs "$ $function_name $@"
-    result=$(eval "$function_name $@")
+    result="$(eval "$function_name $@")"
     docs "$result"
-    docs
   fi
 }
