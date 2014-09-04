@@ -12,7 +12,7 @@ then
 else
   loopword='while read x'
 fi
-go () {
+_zsh-functional_go () {
   eval "$loopword" "; do; $1 \$x; $2 ; done"
   return 0
 }
