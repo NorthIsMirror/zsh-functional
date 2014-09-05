@@ -5,4 +5,4 @@
 
 metaName="$(dirname $0)/__$(basename $0)"
 initGo=$(cat $metaName)
-loopNow="$initGo; go"
+loopNow="$initGo; _zsh-functional_go"
