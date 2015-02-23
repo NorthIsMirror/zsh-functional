@@ -2,7 +2,5 @@
 # either $@ (the arguments) or stdin if $# is 0 (there is none)
 #
 # Please see the other files for how to use this monster.
-
-metaName="$(dirname $0)/__$(basename $0)"
-initGo=$(cat $metaName)
+initGo=$(<${ZSH_FUNCTIONAL_BASEDIR}/__loop-magic.zsh)
 loopNow="$initGo; _zsh-functional_go"
